@@ -34,7 +34,7 @@
                     
                     <div class="row">
 <!--                        <textarea>{{message}}</textarea> 这样的写法是不行的-->
-                        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 form-group">
+                        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                             <label for="message">Message</label>
                             <textarea 
                                 id="message" 
@@ -43,6 +43,21 @@
                                 v-model="message"></textarea>
                         </div>
                     </div>
+                    
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+                            <div class="form-group">
+                                <label for="sendmail">
+                                    <input type="checkbox" id="sendmail" value="SendMail" v-model="sendMail"> Send Mail
+                                </label>
+                                <label for="sendInfomail">
+                                    <input type="checkbox" id="sendInfomail" value="SendInfoMail" v-model="sendMail"> Send Infomail
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
                 </div>
             </div>
         </form>
@@ -60,7 +75,7 @@
                         <p style="white-space:pre">Message:{{message}}</p>
                         <p><strong>Send Email?</strong></p>
                         <ul>
-                            <li></li>
+                            <li v-for="item in sendMail">{{ item }}</li>
                         </ul>
                         <p>Gender:</p>
                         <p>Priority:</p>
@@ -80,7 +95,8 @@
                     password:'',
                     age:27
                 },
-                message: 'A new Text'
+                message: 'A new Text',
+                sendMail: []
             }
         }
     }
