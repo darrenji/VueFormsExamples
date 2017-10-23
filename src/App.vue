@@ -68,6 +68,21 @@
                         </div>
                     </div>
                     
+                    
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+                            <label for="priority">Priority</label>
+<!--                            select中v-model的优先级要高于option中:selected的优先级-->
+                            <select id="priority"
+                                   class="form-control"
+                                   v-model="selectedPriority">
+                                 <option 
+                                     v-for="item in  priorities" 
+                                     :selected="item=='Medium'">{{item}}</option>   
+                            </select>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </form>
@@ -88,7 +103,7 @@
                             <li v-for="item in sendMail">{{ item }}</li>
                         </ul>
                         <p>Gender:{{gender}}</p>
-                        <p>Priority:</p>
+                        <p>Priority:{{selectedPriority}}</p>
                     </div>
                 </div>
             </div>
@@ -107,7 +122,9 @@
                 },
                 message: 'A new Text',
                 sendMail: [],
-                gender: 'Male'
+                gender: 'Male',
+                selectedPriority: 'High',
+                priorities: ['High', 'Medium', 'Low']
             }
         }
     }
