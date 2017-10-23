@@ -20,7 +20,7 @@
                              type="text"
                              class="form-control"
                              id="password"
-                             v-model="userData.password">
+                             v-model.lazy="userData.password">
                     </div>
                     
                     <div class="form-group">
