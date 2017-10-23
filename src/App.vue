@@ -31,6 +31,18 @@
                               class="form-control"
                               v-model="userData.age">
                     </div>
+                    
+                    <div class="row">
+<!--                        <textarea>{{message}}</textarea> 这样的写法是不行的-->
+                        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 form-group">
+                            <label for="message">Message</label>
+                            <textarea 
+                                id="message" 
+                                rows="5" 
+                                class="form-control"
+                                v-model="message"></textarea>
+                        </div>
+                    </div>
                 </div>
             </div>
         </form>
@@ -45,7 +57,7 @@
                         <p>Email:{{userData.email}}</p>
                         <p>Password:{{userData.password}}</p>
                         <p>Age:{{userData.age}}</p>
-                        <p>Message:</p>
+                        <p style="white-space:pre">Message:{{message}}</p>
                         <p><strong>Send Email?</strong></p>
                         <ul>
                             <li></li>
@@ -67,7 +79,8 @@
                     email: '',
                     password:'',
                     age:27
-                }
+                },
+                message: 'A new Text'
             }
         }
     }
