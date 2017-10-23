@@ -11,7 +11,7 @@
                             type="text"
                             id="email"
                             class="form-control"
-                            v-model="email">
+                            v-model="userData.email">
                     </div>
                     
                     <div class="form-group">
@@ -19,7 +19,8 @@
                         <input 
                              type="text"
                              class="form-control"
-                             id="password">
+                             id="password"
+                             v-model="userData.password">
                     </div>
                     
                     <div class="form-group">
@@ -27,7 +28,8 @@
                         <input 
                               type="text" 
                               id="age"
-                              class="form-control">
+                              class="form-control"
+                              v-model="userData.age">
                     </div>
                 </div>
             </div>
@@ -40,9 +42,9 @@
                         <h4>Your Data</h4>
                     </div>
                     <div class="panel-body">
-                        <p>Email:{{email}}</p>
-                        <p>Password:</p>
-                        <p>Age:</p>
+                        <p>Email:{{userData.email}}</p>
+                        <p>Password:{{userData.password}}</p>
+                        <p>Age:{{userData.age}}</p>
                         <p>Message:</p>
                         <p><strong>Send Email?</strong></p>
                         <ul>
@@ -61,7 +63,11 @@
     export default {
         data() {
             return {
-                email: ''
+                userData:{
+                    email: '',
+                    password:'',
+                    age:27
+                }
             }
         }
     }
